@@ -6,14 +6,21 @@ def main():
 
     if is_palindrome(user_input) == True:
         print("It is one")
-    if is_palindrome(user_input) == False:
+    else:
         print("it's not one")
 #if True: #    print("it is one")
 #if False: #    print("it is not one")
 
 def is_palindrome(user_input):
 
-    mod_input= re.sub(r'[^A-Za-z]', "", user_input).lower()
+    alphabet_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    # include characters in input that are also in alphabet_list
+    mod_input = []
+    for letter in user_input.lower():
+        if letter in alphabet_list:
+            mod_input.append(letter)
+
+
 # if len(sentence) = 0 or = 1 then it's TRUE a palindrome (length <= to 1)
     if len(mod_input) <= 1:
         return True
